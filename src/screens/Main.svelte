@@ -5,6 +5,7 @@
   import Reader from "components/Reader.svelte";
   import Website from "components/Website.svelte";
 
+  //
   let showWebsite = false;
   let showReader = false;
   let screenHeight = screen.height;
@@ -27,20 +28,20 @@
 <div class="container">
   <section>
     <header>
-      <img src="assets/logo/color.png" />
+      <img src="assets/logo/color.png" alt="SmartAccess.io Logo" />
     </header>
     <div class="instructions">
-      <img src="assets/nfc-reader.png" />
+      <img src="assets/nfc-reader.png" alt="Screen reader" />
       <h1>Enable NFC Reader</h1>
       <p>Open the NFC reader on your iPhone to read the tag.</p>
       <button on:click={onOpenReader}>Open Reader</button>
     </div>
     <footer>
-      Already a user? <a href="#">Login</a>
+      Already a user? <a href={"#"}>Login</a>
     </footer>
   </section>
   <div class="container__about">
-    <a on:click={onOpenAbout}>About Smart Access</a>
+    <a href={"#"} on:click={onOpenAbout}>About Smart Access</a>
   </div>
 
   {#if showWebsite}

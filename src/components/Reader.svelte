@@ -1,6 +1,5 @@
 <script>
   export let handleCancel;
-
 </script>
 
 <div class="reader">
@@ -34,5 +33,4 @@
       margin-bottom: 0rem;
     }
   }
-  
 </style>

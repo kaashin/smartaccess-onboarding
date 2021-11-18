@@ -5,7 +5,6 @@
   export let swipeIndex = 0;
 </script>
 
-
 {#each Array(count) as item, index}
   <Circle active={index === swipeIndex}/>
 {/each}

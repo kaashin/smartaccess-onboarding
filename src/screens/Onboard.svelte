@@ -75,8 +75,6 @@
 </div>
 
 <style lang="scss">
-	@import "./../styles/app.scss";
-
 	section {
 		text-align: center;
 		max-width: 600px;
@@ -132,7 +130,4 @@
 	.container__swipe-indicator {
 		margin: 0.5rem;
 	}
-
-
-
 </style>

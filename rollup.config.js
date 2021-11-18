@@ -6,6 +6,8 @@ import { terser } from "rollup-plugin-terser";
 import css from "rollup-plugin-css-only";
 import preprocess from "svelte-preprocess";
 import alias from "@rollup/plugin-alias";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -17,6 +19,10 @@ const aliases = alias({
     { find: "stores", replacement: "src/stores" },
   ],
 });
+
+// Configuration settings to allow sass for global css
+const filePath = dirname(fileURLToPath(import.meta.url));
+const sassPath = `${filePath}/src/styles`;
 
 function serve() {
   let server;
@@ -60,6 +66,9 @@ export default {
       },
       preprocess: preprocess({
         postcss: {
+          scss: {
+            prependData: `@import '${sassPath}/app.scss';`,
+          },
           // For autoprefixing for browser compatibility
           plugins: [require("autoprefixer")],
         },
