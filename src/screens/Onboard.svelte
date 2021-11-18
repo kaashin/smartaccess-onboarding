@@ -3,7 +3,8 @@
   import { Swipe, SwipeItem } from "svelte-swipe";
 	import { fade } from 'svelte/transition';
 
-  import SwipeIndicator from './../components/SwipeIndicator.svelte'
+	import OnboardSlide from 'components/OnboardSlide.svelte';
+  import SwipeIndicator from 'components/SwipeIndicator.svelte'
 
   const swipeConfig = {
     autoplay: false,
@@ -51,14 +52,22 @@
 			<Swipe {...swipeConfig} on:change={onSwipe} on:click>
 				{#each swipeItemArr as swipeItem, index}
 				<SwipeItem on:click>
-					<div class="container__swipe-item">
-						<img src={`${swipeItem.image}`} alt={`onboardImage-${index}`}/>
-						<h2>{swipeItem.title}</h2>
-						<p>{swipeItem.blurb}</p>
+					<OnboardSlide 
+						title={swipeItem.title}
+						blurb={swipeItem.blurb}
+						image={swipeItem.image}
+						index={index}
+					>
 						{#if index === swipeItemArr.length - 1}
 							<button class="button__finish" on:click={onFinish}>Finish</button>
 						{/if}
-					</div>
+					</OnboardSlide>
+					<!-- <div class="container__swipe-item">
+						<img src={`${swipeItem.image}`} alt={`onboardImage-${index}`}/>
+						<h2>{swipeItem.title}</h2>
+						<p>{swipeItem.blurb}</p>
+						
+					</div> -->
 				</SwipeItem>
 		
 				{/each}
@@ -105,27 +114,10 @@
 		min-height: 500px;
 	}
 	
-	.container__swipe-item {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-
-		img {
-
-			max-height: 250px;
-		}
-
-		p {
-			font-size: 1.125rem;
-			width: 75%;
-			margin: 0;
-		}
-
-		.button__finish {
+	.button__finish {
 			margin: 1rem;
 			pointer-events: fill;
 		}
-	}
 
 	.container__swipe-indicator {
 		margin: 0.5rem;
