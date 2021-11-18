@@ -11,6 +11,8 @@
   <img src={`${image}`} alt={`onboardImage-${index}`}/>
   <h2>{title}</h2>
   <p>{blurb}</p>
+
+  <!-- In case extra content required for a slide -->
   <slot></slot>
 </div>
 
