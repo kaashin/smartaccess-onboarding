@@ -62,12 +62,6 @@
 							<button class="button__finish" on:click={onFinish}>Finish</button>
 						{/if}
 					</OnboardSlide>
-					<!-- <div class="container__swipe-item">
-						<img src={`${swipeItem.image}`} alt={`onboardImage-${index}`}/>
-						<h2>{swipeItem.title}</h2>
-						<p>{swipeItem.blurb}</p>
-						
-					</div> -->
 				</SwipeItem>
 		
 				{/each}
