@@ -3,7 +3,6 @@
   export let blurb;
   export let image;
   export let index;
-
 </script>
 
 
